@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 
 
-const Cart = ({history}) => {
+const Cart = ({ history }) => {
 
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
@@ -37,7 +37,13 @@ const Cart = ({history}) => {
 
     const checkoutHandler = () => {
         history.push("/login?redirect=shipping");
-      };
+    };
+
+    // const [hoursValue, SethoursValue] = useState()
+    // const getValue = (e) => {
+    //     SethoursValue(e.target.value)
+    // }
+    // console.log(hoursValue);
 
     return (
         <Fragment>
@@ -51,7 +57,20 @@ const Cart = ({history}) => {
                 </div>
             ) : (
 
+
                 <Fragment>
+                    {/* <div className="rentalHours">
+                        <h1>{hoursValue}</h1>
+                        <input className="hours"
+                            type="Number"
+                            name="hfield"
+                            placeholder="How many hours you want the selected product(s) for?"
+                            onChange={getValue}
+                        />
+                        <button className="done" onClick={hoursHandler}>Done</button>
+                    </div> */}
+
+
                     <div className="cartPage">
                         <div className="cartHeader">
                             <p>Product</p>
@@ -93,7 +112,7 @@ const Cart = ({history}) => {
                             </div>
                             <div></div>
                             <div className="checkOutBtn">
-                                <button  onClick={checkoutHandler}>Check Out</button>
+                                <button onClick={checkoutHandler}>Check Out</button>
                             </div>
                         </div>
                     </div>

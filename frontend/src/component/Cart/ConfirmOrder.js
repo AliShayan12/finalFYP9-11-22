@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector } from "react-redux";
 import MetaData from "../layout/MetaData";
@@ -10,13 +10,24 @@ const ConfirmOrder = ({ history }) => {
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user);
 
+    const [hoursValue, SethoursValue] = useState()
+    const getValue = (e) => {
+        SethoursValue(e.target.value)
+    }
+    // console.log(hoursValue);
+
     const subtotal = cartItems.reduce(
+        (acc, item) => acc + item.quantity * item.price * hoursValue,
+        0
+    );
+
+    const subtotalWithoutHours = cartItems.reduce(
         (acc, item) => acc + item.quantity * item.price,
         0
     );
-    const shippingCharges = subtotal < 700 ? 0 : 200;
+    const shippingCharges = subtotalWithoutHours < 700 ? 0 : 200;
 
-    const tax = subtotal * 0.16;
+    const tax = subtotalWithoutHours * 0.16;
 
     const totalPrice = subtotal + tax + shippingCharges;
 
@@ -28,6 +39,7 @@ const ConfirmOrder = ({ history }) => {
             shippingCharges,
             tax,
             totalPrice,
+            hoursValue,
         };
 
         sessionStorage.setItem("orderInfo", JSON.stringify(data));
@@ -71,11 +83,22 @@ const ConfirmOrder = ({ history }) => {
                                             {item.name}
                                         </Link>{" "}
                                         <span>
-                                            {item.quantity} X Rs {item.price} ={" "}
-                                            <b>Rs {item.price * item.quantity}</b>
+                                            {item.quantity} X Rs {item.price}  ={" "}
+                                            <b>Rs {item.price * item.quantity} </b>
                                         </span>
                                     </div>
                                 ))}
+                        </div>
+
+                        <div className="rentalHours">
+                            <Typography>Type the hours       :</Typography>
+                            <input className="hours"
+                                type="Number"
+                                name="hfield"
+                                placeholder="How many hours you want the selected product(s) for?"
+                                onChange={getValue}
+                            />
+                            {/* <button className="done" onClick={hoursHandler}>Done</button> */}
                         </div>
                     </div>
                 </div>
@@ -95,6 +118,10 @@ const ConfirmOrder = ({ history }) => {
                             <div>
                                 <p>GST:</p>
                                 <span>Rs {tax}</span>
+                            </div>
+                            <div>
+                                <p>Total Number of Hours:</p>
+                                <span>{hoursValue} </span>
                             </div>
                         </div>
 

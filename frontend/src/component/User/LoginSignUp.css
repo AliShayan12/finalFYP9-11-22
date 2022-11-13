@@ -106,6 +106,7 @@
     border-radius: 4px;
     font: 300 0.9vmax Roboto;
     outline: none;
+    margin-left: 0.8vmax;
 }
 
 .dropdownUserOptions {
@@ -225,6 +226,7 @@
     }
 
     .dropdownUserOptions,
+    .options,
     .loginForm>div>input,
     .signUpForm>div>input {
         padding: 2.5vmax 5vmax;

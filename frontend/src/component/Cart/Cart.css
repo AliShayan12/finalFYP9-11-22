@@ -28,9 +28,52 @@
     text-decoration: none;
 }
 
-.emptyCart>a:hover{
+.emptyCart>a:hover {
     background-color: rgb(0, 0, 0);
 }
+
+
+.rentalHours {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+
+
+}
+
+.hours {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.637);
+    padding: 1vmax 2vmax;
+    width: 50%;
+    outline: none;
+    border-radius: 0%;
+    font: 300 1.1vmax Roboto;
+    /* box-sizing: border-box; */
+    height: 8%;
+}
+
+/* 
+.done {
+    height: 8%;
+    border-radius: 0%;
+    background-color: #134B5F;
+    border: none;
+    padding: 1vmax;
+    width: 10%;
+    font: 300 1.1vmax "Roboto";
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+}
+
+.done:hover {
+    background-color: #397991;
+} */
 
 .cartPage {
     padding: 5vmax;

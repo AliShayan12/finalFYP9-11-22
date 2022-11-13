@@ -110,6 +110,17 @@
     padding: 2vmax 0;
 }
 
+.rentalHours {
+    width: 100%;
+    padding: 1vmax;
+    border: none;
+    margin: auto;
+}
+
+.hours {
+    padding-right: 12vmax;
+}
+
 .orderSummary>button {
     background-color: #134B5F;
     color: white;

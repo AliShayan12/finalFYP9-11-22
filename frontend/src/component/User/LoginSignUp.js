@@ -8,7 +8,6 @@ import FaceIcon from "@material-ui/icons/Face";
 import HomeIcon from '@mui/icons-material/Home';
 import CallIcon from '@mui/icons-material/Call';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -40,6 +39,7 @@ const LoginSignUp = ({ history, location }) => {
         role: ""
 
     });
+
 
     const { name, email, password, address, CNIC, PhoneNumber, role } = user;
     const [displayPicture, setdisplayPicture] = useState();
@@ -120,6 +120,10 @@ const LoginSignUp = ({ history, location }) => {
         }
     };
 
+    const RoleOptions = [
+        "user",
+        "Lender"
+    ]
 
     return (
         <Fragment>
@@ -242,22 +246,27 @@ const LoginSignUp = ({ history, location }) => {
                                     />
                                 </div>
 
-                                <div className="TypeOfUser">
-                                    <PeopleAltIcon />
-                                    <input
-                                        type="text"
-                                        placeholder="Type of User (Lender or user) you want to be"
-                                        required
-                                        name="role"
-                                        value={role}
-                                        onChange={registerDataChange}
-                                    />
+
+
+                                <div>
+                                    <select className='options'
+                                        // value={category}
+                                        onChange={(e) => setUser((prev) => { return { ...prev, role: e.target.value } })}
+                                    >
+                                        <option value="" className='dropdownUserOptions'>Choose Type of User</option>
+                                        {RoleOptions.map((role) => (
+                                            <option key={role} value={role}>
+                                                {role}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
+
                                 {/*  */}
 
 
                                 <div id="registerImage">
-                                    <img src={displayPicturePreview} alt="Display Picture Preview" />
+                                    <img src={displayPicturePreview} alt="pic Preview" />
                                     <input
                                         type="file"
                                         name="displayPicture"
@@ -269,10 +278,10 @@ const LoginSignUp = ({ history, location }) => {
                             </form>
                         </div>
                     </div>
-                </Fragment>
+                </Fragment >
 
             }
-        </Fragment>
+        </Fragment >
 
     )
 }
