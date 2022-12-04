@@ -251,6 +251,7 @@ const LoginSignUp = ({ history, location }) => {
                                 <div>
                                     <select className='options'
                                         // value={category}
+                                        required
                                         onChange={(e) => setUser((prev) => { return { ...prev, role: e.target.value } })}
                                     >
                                         <option value="" className='dropdownUserOptions'>Choose Type of User</option>
@@ -268,6 +269,7 @@ const LoginSignUp = ({ history, location }) => {
                                 <div id="registerImage">
                                     <img src={displayPicturePreview} alt="pic Preview" />
                                     <input
+                                        required
                                         type="file"
                                         name="displayPicture"
                                         accept="image/*"

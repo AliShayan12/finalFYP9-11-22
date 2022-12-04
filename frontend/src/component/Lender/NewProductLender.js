@@ -32,7 +32,6 @@ const NewProductLender = ({ history }) => {
         "Footwear",
         "Bottom",
         "Tops",
-        "Attire",
         "Camera",
         "SmartPhones",
         "Gloves",
@@ -161,6 +160,7 @@ const NewProductLender = ({ history }) => {
                         <div id="createProductFormFile">
                             <input
                                 type="file"
+                                required
                                 name="avatar"
                                 accept="image/*"
                                 onChange={createProductImagesChange}

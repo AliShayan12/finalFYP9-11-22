@@ -15,7 +15,6 @@ const categories = [
     "Footwear",
     "Bottom",
     "Tops",
-    "Attire",
     "Camera",
     "SmartPhones",
     "Gloves",

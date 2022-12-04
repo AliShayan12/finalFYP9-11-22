@@ -46,10 +46,10 @@
 }
 
 .dashboardSummaryBox2>a {
-    color: #F65058FF;
+    color: white;
     font: 300 2rem "Roboto";
     text-align: center;
-    background-color: #FBDE44FF;
+    background-color: #469db9;
     text-decoration: none;
     padding: 1.5rem;
     width: 10vmax;
@@ -67,14 +67,14 @@
 }
 
 .dashboardSummaryBox2>a:first-child {
-    background-color: #F65058FF;
-    color: #28334AFF;
+    background-color: #4fabcc;
+    color: white;
 }
 
 
 .dashboardSummaryBox2>a:last-child {
-    background-color: #28334AFF;
-    color: #FBDE44FF;
+    background-color: #3a7a8b;
+    color: white;
 }
 
 
